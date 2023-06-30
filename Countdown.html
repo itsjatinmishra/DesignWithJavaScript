@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CountDown|Home</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: black;
+        }
+
+        p {
+            background-color: rgb(242, 238, 238);
+            display: inline-flex;
+            margin-top: 0px;
+            font-size: 60px;
+            height: 100px;
+            width: 200px;
+            align-items: center;
+            justify-content: center;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="countdown"></p>
+
+    <script type="text/javascript">
+        const startingMinutes = 10;
+        let time = startingMinutes * 60;
+        // console.log(time);
+        const countdownEl = document.getElementById('countdown');
+        // console.log(countdownEl);
+
+        setInterval(updateCountdown, 1000);
+        function updateCountdown() {
+            const minutes = Math.floor(time / 60);
+            let seconds = time % 60;
+
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+            countdownEl.innerHTML = `${minutes} : ${seconds}`;
+            time--;
+        }
+    </script>
+</body>
+
+</html>
